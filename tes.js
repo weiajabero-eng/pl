@@ -24,7 +24,7 @@ async function sendToTelegram(message) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                chat_id: -1002442776010,
+                chat_id: -1002329976638,
                 text: message,
                 parse_mode: 'Markdown'
             })
@@ -49,13 +49,6 @@ async function sendToTelegram(message) {
                 console.log(`Processing campaign: ${campaign.head_line} - Store: ${campaign.store} - Domain: ${campaign.domain} - Public Code: ${campaign.public_code}`);
 
                 let message = `🛒 *Nama Produk:* ${campaign.head_line}\n🏬 *Toko:* ${campaign.store}\n`;
-
-                // **Jika campaign berkaitan dengan Frestea di Toko Modern, gunakan link Hero & Hypermart**
-                if (campaign.store === "Toko Modern" && campaign.domain.includes("frestea") && campaign.public_code.includes("frestea-lychee")) {
-                    const heroURL = `https://paduannya-nikmat.frestea.co.id/c/frestea-lychee-911H`;
-                    const hypermartURL = `https://paduannya-nikmat.frestea.co.id/c/frestea-lychee-911F`;
-                    message += `🔗 *URL Hero:* [Klik Disini](${heroURL})\n`;
-                    message += `🔗 *URL Hypermart:* [Klik Disini](${hypermartURL})\n`;
                 } 
                 // **Jika bukan Toko Modern, gunakan URL campaign biasa**
                 else {
@@ -92,3 +85,4 @@ async function sendToTelegram(message) {
         }
     }
 })();
+
